@@ -9,19 +9,11 @@
             }
             
             /* Page settings */
-            html {
-                width: 100%;
-                height: 100%;
-                background: radial-gradient(circle, #fff 0%, #aaa 100%) no-repeat;
-                overflow-x: hidden;
-                overflow-y: hidden;
-            }
             body {
-                text-align: center;
                 display: table;
                 background: black;
-                width: 100%;
-                height: 100%;
+                width: 100vh;
+                height: 100vh;
                 overflow-x: hidden;
                 overflow-y: hidden;
             }
@@ -29,19 +21,18 @@
             canvas {display:block;}
             
             #author {
-                position: absolute;
-                color : rgba(0, 255, 0, 0.822);
+                color : #00FFFF;
                 margin-left: -100px;
+                -webkit-user-select: none;  /* Chrome all / Safari all */
+                -moz-user-select: none;     /* Firefox all */
+                -ms-user-select: none;      /* IE 10+ */
+                user-select: none;          /* Likely future */ 
             }
             span{
                 animation: blinker 0.8s linear infinite;
-                user-select: none; /* supported by Chrome and Opera */
-                -webkit-user-select: none; /* Safari */
-                -khtml-user-select: none; /* Konqueror HTML */
-                -moz-user-select: none; /* Firefox */
-                -ms-user-select: none; /* Internet Explorer/Edge */
             }
             p {
+                width: min(100% - 2rem, 800px);
                 text-align: left;
                 font-family: monospace;
                 font-weight: bold;
@@ -69,9 +60,13 @@
 
             .pselector {
                 display:flex;
-                margin-top: -520px;
-                top: 100px;
-                margin-left: 35%;
+                justify-content: center;
+                align-items: center;
+                margin-top: -28%;
+            }
+
+            @media screen and (max-width: 800px) {
+                
             }
         
         </style>
@@ -114,7 +109,7 @@
             ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
             ctx.fillRect(0, 0, c.width, c.height);
 
-            ctx.fillStyle = "#0F0"; //green text
+            ctx.fillStyle = "#00FFFF"; //green text
             ctx.font = font_size + "px arial";
             //looping over drops
             for( var i = 0; i < drops.length; i++ )
